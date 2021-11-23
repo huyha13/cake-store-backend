@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const cakeController =require('../Controllers/cake.controller')
+const cakeController =require('../controllers/cake.controller')
 router.put("/:id",cakeController.updateCake)
 router.delete("/:id",cakeController.deleteCake)
 router.post("/create",cakeController.createCake)
