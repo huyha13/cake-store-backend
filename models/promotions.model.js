@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const PromotionsSchema = mongoose.Schema({
-    promition_name: {
+    promotion_name: {
     type: String,
     require: true,
   },

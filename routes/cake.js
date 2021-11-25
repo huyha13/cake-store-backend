@@ -4,7 +4,7 @@ const cakeController =require('../controllers/cake.controller')
 router.put("/:id",cakeController.updateCake)
 router.delete("/:id",cakeController.deleteCake)
 router.post("/create",cakeController.createCake)
-router.get("/search",cakeController.getCakesByNameAndCategory)
+router.get("/search",cakeController.getCakesByName)
 router.get("/:id",cakeController.getCakeById)
 router.get("/",cakeController.getAllCakes)
 module.exports=router

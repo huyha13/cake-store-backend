@@ -16,7 +16,7 @@ const OrderSchema = mongoose.Schema({
     type: Number,
     require: true,
   },
-  status:{
+  cake_option:{
     type:String,
     require:true
   },
