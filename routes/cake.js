@@ -6,5 +6,5 @@ router.delete("/:id",cakeController.deleteCake)
 router.post("/create",cakeController.createCake)
 router.get("/search",cakeController.getCakesByName)
 router.get("/:id",cakeController.getCakeById)
-router.get("/",cakeController.getAllCakes)
+router.get("/",cakeController.getCakesByPagination)
 module.exports=router

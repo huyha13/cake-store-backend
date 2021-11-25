@@ -1,4 +1,4 @@
-const promitionsModel = require("../models/promotions.model");
+const promotionsModel = require("../models/promotions.model");
 class PromotionsController {
   async getPromotionsByPagination(req, res) {
     let { page } = req.query;
@@ -6,15 +6,15 @@ class PromotionsController {
       page = 1;
     }
     let limit = 3;
-    let total = await promitionsModel.find().count();
-    let promitionsList = await promitionsModel
+    let total = await promotionsModel.find().count();
+    let promotionsList = await promotionsModel
       .find()
       .limit(Number.parseInt(limit))
       .skip((page - 1) * limit);
-    if (promitionsList) {
-      console.log(promitionsList)
+    if (promotionsList) {
+      console.log(promotionsList)
       return res.status(200).json({
-        promitions: promitionsList,
+        promotions: promotionsList,
         currentPage: page,
         totalPages: Math.ceil(total / limit),
       });
@@ -22,7 +22,7 @@ class PromotionsController {
     return res.status(400).json({ msg: "Err" });
   }
   async getPromotionsById (req,res){
-    console.log(req.url)
+    console.log(req)
     const id = req.params.id;
     promotionsModel.find({ _id: id }, (err, promotions) => {
       if (!err) {

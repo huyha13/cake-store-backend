@@ -23,7 +23,7 @@ class CakeControler {
   async getCakesByPagination(req, res) {
     //  console.log(req)
     let { page, limit } = req.query;
-    limit = 2;
+    limit = 12;
     if (!page) {
       page = 1;
     }
@@ -42,13 +42,14 @@ class CakeControler {
   }
   async getCakesByName(req, res) {
     let { query, page, limit } = req.query;
-    limit = 2;
+    console.log(query)
+    limit = 4;
     if (!page) {
       page = 1;
     }
     let total = await CakeModel.find().count();
     let cakes = await CakeModel.find({
-      name: { $regex: query.toLowerCase(), $options: "$i" },
+      cake_name: { $regex: query.toLowerCase(), $options: "$i" },
     })
       .limit(Number.parseInt(limit))
       .skip((page - 1) * limit);
