@@ -1,5 +1,4 @@
-const cakeModel = require("../models/cake.model");
-let CakeModel = require("../models/cake.model");
+const CakeModel = require("../models/cake.model");
 class CakeControler {
   getAllCakes(req, res) {
     CakeModel.find({}, (err, cake) => {
