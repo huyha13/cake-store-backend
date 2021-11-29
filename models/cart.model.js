@@ -6,6 +6,7 @@ const CartSchema = mongoose.Schema({
   },
   cakes: {
     type: Array,
+    ref:"Cake",
   },
   createdAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },
