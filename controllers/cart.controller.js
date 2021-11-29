@@ -16,12 +16,13 @@ class CartController {
     return res.status(400).json({cakes:"[]"});
   }
   async addCart(req, res) {
-    let { cartIds, userId } = req.body;
-    let cart = await cartModel.create({ user: userId, cake: cartIds });
+    let { userId, cakeId } = req.body;
+    let cart = await cartModel.create({ user: userId, cake: cakeId });
     if (cart) {
       return res.status(200).json({ msg: "Success" });
     }
     return res.status(400).json({ msg: "Err" });
+    console.log(cakeId)
   }
 }
 module.exports = new CartController();
