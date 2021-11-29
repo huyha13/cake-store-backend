@@ -8,6 +8,10 @@ const StoreSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  store_image: {
+    type: String,
+    require: true,
+  },
   phone: {
     type: Number,
     require: true,

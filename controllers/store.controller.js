@@ -44,16 +44,16 @@ class StoreController {
     })
   }
   async createStore(req,res){
-    const {store_name, store_address, phone,map}=req.body
+    const {store_name, store_address, phone,map,store_image}=req.body
     let store = await storeModel.create({
-      store_name, store_address, phone,map
+      store_name, store_address, phone, map, store_image
     })
     return res.status(200).json({store});
   }
   async updateStore(req, res){
     const id = req.params.id;
-    const {store_name, store_address, phone,map } = req.body;
-    storeModel.findByIdAndUpdate({ _id: id}, { store_name, store_address, phone,map})
+    const {store_name, store_address, phone,map, store_image } = req.body;
+    storeModel.findByIdAndUpdate({ _id: id}, { store_name, store_address, phone,map, store_image})
    .then(()=>res.json({msg:"Cap nhat thanh cong"}))
    .catch((err)=> res.json({msg:err}))
   }
