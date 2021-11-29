@@ -17,7 +17,7 @@ const StoreSchema = mongoose.Schema({
     require: true,
   },
   map: {
-    type: Number,
+    type: String,
     require: true,
   },
   createdAt: { type: Date, default: Date.now },
