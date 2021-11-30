@@ -1,26 +1,29 @@
 const orderModel = require("../models/order.moduel")
 class OrderController {
-    async getOrderByPagination(req, res) {
-        let { page } = req.query;
-        if (!page) {
-          page = 1;
-        }
-        let limit = 3;
-        let total = await orderModel.find().count();
-        let orderList = await orderModel
-          .find()
-          .limit(Number.parseInt(limit))
-          .skip((page - 1) * limit);
-        if (orderList) {
-          return res.status(200).json({
-            orders: orderList,
-            currentPage: page,
-            totalPages: Math.ceil(total / limit),
-          });
-          
-        }
-        return res.status(400).json({ msg: "Err" });
-      }
+   async getOrderByCartId(req,res){
+    let {id} = req.params
+    let order = await orderModel.findOne({"Cart._id": id })
+    if(order){
+      return res.status(200).json(order)
+    }
+    return res.status(400).json({order:[]})
+   }
+   async getAllOrder(req,res){
+     orderModel.find({},(err,order)=>{
+       if(!err){
+         return res.status(200).json(order)
+       }
+       return res.status(400).json("Error get data")
+     })
+   }
+   async createOrder(req,res){
+     let {cartId}=req.body
+     let order = await orderModel.create({cartId})
+     if(order){
+       return res.status(200).json({msg:"sussces"})
+     }
+     return res.status(400).json({msg:"Error"})
+   }
       
 }
 module.exports = new OrderController()

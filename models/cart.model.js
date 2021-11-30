@@ -4,7 +4,17 @@ const CartSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  cake:[mongoose.Types.ObjectId],
+  cakes:[
+    {
+      cake:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Cake"
+      },
+      quantity:{
+        type: Number
+      },
+    },
+  ],
   createdAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },
 });
