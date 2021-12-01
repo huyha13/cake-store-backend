@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
-const UserSchema = mongoose.Schema({
-  fistName: {
-    type: String,
-    require: true,
-  },
-  lastName: {
+const PerOrderSchema = mongoose.Schema({
+  full_name: {
     type: String,
     require: true,
   },
@@ -12,17 +8,15 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  phone:{
-    type: String
+  phone: {
+    type: String,
+    require: true,
   },
-  address:{
-    type:String
-  },
-  password: {
+  content: {
     type: String,
     require: true,
   },
   createdAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },
 });
-const User = (module.exports = mongoose.model("User", UserSchema));
+const User = (module.exports = mongoose.model("PreOder", PerOrderSchema));

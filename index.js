@@ -24,6 +24,7 @@ const store = require("./routes/store");
 const customer = require("./routes/customer");
 const order = require("./routes/order");
 const staff = require("./routes/staff");
+const perOrder = require("./routes/per-order");
 app.use("/api/cake", cake);
 app.use("/api/user", user);
 app.use("/api/cart", cart);
@@ -33,6 +34,7 @@ app.use("/api/store", store);
 app.use("/api/customer", customer);
 app.use("/api/order", order);
 app.use("/api/staff", staff);
+app.use("/api/perOrder", perOrder);
 app.listen(PORT, () => {
   console.log("App is running", PORT);
 });

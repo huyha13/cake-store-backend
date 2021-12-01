@@ -45,16 +45,16 @@ class PromotionsController {
     })
   }
   async createPromotions(req,res){
-    const {new_img, title, content}=req.body
+    const {promition_name, content, promition_image}=req.body
     let promotions = await promotionsModel.create({
-      promition_name, discount,date_begin,date_end,content
+      promition_name,content,promition_image
     })
     return res.status(200).json({ promotions});
   }
   async updatePromotions(req, res){
     const id = req.params.id;
-    const {promition_name, discount, date_begin,date_end,content } = req.body;
-    promotionsModel.findByIdAndUpdate({ _id: id}, { promition_name, discount, date_begin,date_end,content})
+    const {promition_name, content, promition_image } = req.body;
+    promotionsModel.findByIdAndUpdate({ _id: id}, {  promition_name,content,promition_image})
    .then(()=>res.json({msg:"Cap nhat thanh cong"}))
    .catch((err)=> res.json({msg:err}))
   }

@@ -1,28 +1,16 @@
 const mongoose = require("mongoose");
 const PromotionsSchema = mongoose.Schema({
-    promotion_name: {
+  promotion_name: {
     type: String,
     require: true,
   },
-  discount: {
-    type: String,
-    require: true,
-  },
-  date_begin: {
-    type: Number,
-    require: true,
-  },
-  date_end: {
-    type: Number,
-    require: true,
+  promotion_image:{
+    type:String,
+    require: true
   },
   content:{
     type:String,
     require:true
-  },
-  status: {
-    type: String,
-    require: true,
   },
   createdAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },

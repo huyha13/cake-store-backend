@@ -8,9 +8,10 @@ class CartController {
     console.log(cart)
     if (cart) {
       const {cakes}=cart
+      console.log(cakes)
       const list=[]
       for (const item of cakes) {
-         const cake=await cakeModel.findOne({_id:item.cake})
+         const cake = await cakeModel.findOne({_id:item.cake})
          list.push({
            cakes:cake,
            quantity:item.quantity
