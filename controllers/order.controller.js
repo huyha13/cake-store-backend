@@ -4,7 +4,6 @@ class OrderController {
    async getOrderByUserId(req,res){
     let {id} = req.params
     let order = await orderModel.findOne({"Users._id": id })
-    console.log(id)
     if(order){
       return res.status(200).json(order)
     }

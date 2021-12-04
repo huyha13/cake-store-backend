@@ -3,7 +3,6 @@ const cartModel = require("../models/cart.model");
 class CartController {
   async getCartByUserId(req, res) {
     let { id } = req.params;
-
     let cart = await cartModel.findOne({ "Users._id": id });
     console.log(cart)
     if (cart) {
@@ -23,9 +22,12 @@ class CartController {
   }
   async addCart(req, res) {
     let { userId, cakeId, quantity } = req.body;
-    let cart = await cartModel.create({ user: userId, cakes:[{cake:cakeId,quantity}] });
-    if (cart) {
-      return res.status(200).json({ msg: "Success" });
+    let id
+    let iduser = await cartModel.findOne( {"Users._id":id });
+    console.log(iduser)
+    if (!iduser) {
+      let cart = await cartModel.create({ user: userId, cakes:[{cake:cakeId,quantity}] });
+      return res.status(200).json(cart);
     }
     return res.status(400).json({ msg: "Err" });
   }

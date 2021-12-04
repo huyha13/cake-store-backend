@@ -61,6 +61,28 @@ class CakeControler {
     }
     return res.status(400).json({ msg: "Err get data" });
   }
+  async getCakesByType(req, res) {
+    let { query, page, limit } = req.query;
+    console.log(query)
+    limit = 12;
+    if (!page) {
+      page = 1;
+    }
+    let total = await CakeModel.find().count();
+    let cakes = await CakeModel.find({
+      cake_type: { $regex: query.toLowerCase(), $options: "$i" },
+    })
+      .limit(Number.parseInt(limit))
+      .skip((page - 1) * limit);
+    if (cakes) {
+      return res.json({
+        cakes: cakes,
+        currentPage: page,
+        totalPages: Math.ceil(total / limit),
+      });
+    }
+    return res.status(400).json({ msg: "Err get data" });
+  }
   async createCake(req, res){
     const {cake_name,cake_img,cake_type,date_make,expiry,quantity,cake_option,price}=req.body
     let cake=await CakeModel.create({
