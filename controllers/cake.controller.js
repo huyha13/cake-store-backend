@@ -20,7 +20,6 @@ class CakeControler {
     });
   }
   async getCakesByPagination(req, res) {
-    //  console.log(req)
     let { page, limit } = req.query;
     limit = 12;
     if (!page) {

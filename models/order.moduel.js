@@ -9,10 +9,10 @@ const OrderSchema = mongoose.Schema({
     require: true
   },
   status:{
-    type: Boolean,
+    type: String,
   },
   transport:{
-    type:Boolean,
+    type:String,
   },
   total: {
     type:String
