@@ -4,8 +4,9 @@ const cartModel = require("../models/cart.model");
 class CartController {
   async getCartByUserId(req, res) {
     let { id } = req.params;
-    let cart = await cartModel.findOne({ "Users._id": id });
+    let cart = await cartModel.findOne({ "user": id });
     console.log(id)
+    console.log(cart)
     if (cart) {
       const {cakes}=cart
       console.log(cakes)
