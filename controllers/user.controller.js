@@ -25,5 +25,15 @@ class UserController {
       }
     }
   }
+  getUserById(req, res) {
+    const id = req.params.id;
+    userModel.find({ _id: id }, (err, user) => {
+      if (!err) {
+        res.json(user);
+      } else {
+        res.status(400).json("Error get data");
+      }
+    });
+  }
 }
 module.exports = new UserController();
