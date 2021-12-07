@@ -5,7 +5,7 @@ class StoreController {
     if (!page) {
       page = 1;
     }
-    let limit = 3;
+    let limit = 8;
     let total = await storeModel.find().count();
     let storeList = await storeModel
       .find()
