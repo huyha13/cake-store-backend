@@ -3,7 +3,8 @@ const userModel = require("../models/user.model")
 class OrderController {
    async getOrderByUserId(req,res){
     let {id} = req.params
-    let order = await orderModel.findOne({"Users._id": id })
+    let order = await orderModel.find({"user": id })
+
     if(order){
       return res.status(200).json(order)
     }
