@@ -17,6 +17,12 @@ const OrderSchema = mongoose.Schema({
   total: {
     type:String
   },
+  address:{
+    type:String
+  },
+  phone:{
+    type:String
+  },
   createdAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },
 });

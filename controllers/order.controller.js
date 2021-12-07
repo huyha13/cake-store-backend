@@ -19,8 +19,8 @@ class OrderController {
      })
    }
    async createOrder(req,res){
-     let {userId,status,transport,name,total}=req.body
-     let order = await orderModel.create({user:userId,status,transport,name, total})
+     let {userId,status,transport,name,total,address,phone}=req.body
+     let order = await orderModel.create({user:userId,status,transport,name, total,address,phone})
      if(order){
        return res.status(200).json({msg:"sussces"})
      }
