@@ -7,5 +7,6 @@ router.post("/create",cakeController.createCake)
 router.get("/type",cakeController.getCakesByType)
 router.get("/search",cakeController.getCakesByName)
 router.get("/:id",cakeController.getCakeById)
+router.get("/allcake",cakeController.getAllCakes)
 router.get("/",cakeController.getCakesByPagination)
 module.exports=router
