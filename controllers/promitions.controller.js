@@ -1,5 +1,14 @@
 const promotionsModel = require("../models/promotions.model");
 class PromotionsController {
+  getAllPromotion(req, res) {
+    promotionsModel.find({}, (err, promotion) => {
+      if (!err) {
+        res.json(promotion);
+      } else {
+        res.status(400).json("Error get data");
+      }
+    });
+  }
   async getPromotionsByPagination(req, res) {
     let { page } = req.query;
     if (!page) {
