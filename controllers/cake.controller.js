@@ -83,9 +83,9 @@ class CakeControler {
     return res.status(400).json({ msg: "Err get data" });
   }
   async createCake(req, res){
-    const {cake_name,cake_img,cake_type,quantity,cake_option,price}=req.body
+    const {cake_name,cake_image,cake_type,quantity,cake_option,price,description}=req.body
     let cake=await CakeModel.create({
-      cake_name,cake_img,cake_type,quantity,cake_option,price
+      cake_name,cake_image,cake_type,quantity,cake_option,price,description
     })
     return res.status(200).json({ cake});
   }
