@@ -1,9 +1,9 @@
 const CakeModel = require("../models/cake.model");
 class CakeControler {
   getAllCakes(req, res) {
-    CakeModel.find({}, (err, cake) => {
+    CakeModel.find({}, (err, cakes) => {
       if (!err) {
-        res.json(cake);
+        res.json(cakes);
       } else {
         res.status(400).json("Error get data");
       }
