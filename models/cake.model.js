@@ -20,14 +20,6 @@ const OrderSchema = mongoose.Schema({
     type:String,
     require:true
   },
-  date_make: {
-    type: String,
-    require: true,
-  },
-  expiry: {
-    type: String,
-    require: true,
-  },
   cake_type: {
     type: String,
     require: true,
