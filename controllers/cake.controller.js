@@ -102,8 +102,8 @@ class CakeControler {
   }
   async updateCake( req , res){
   const id = req.params.id;
-   const {  cake_name,cake_image,cake_type,quantity,cake_option,price,description} = req.body;
-   CakeModel.findByIdAndUpdate({ _id: id}, { cake_name,cake_image,cake_type,quantity,cake_option,price,description})
+   const {   cake_name,cake_image,cake_type,quantity,cake_option,price,description } = req.body;
+   CakeModel.findByIdAndUpdate({ _id: id}, {  cake_name,cake_image,cake_type,quantity,cake_option,price,description})
    .then(()=>res.json({msg:"Cap nhat thanh cong"}))
    .catch((err)=> res.json({msg:err}))
   }
