@@ -56,16 +56,16 @@ class NewsController {
     })
   }
   async createNews(req,res){
-    const {new_img, title, content}=req.body
+    const {new_image, title, content}=req.body
     let news = await NewsModel.create({
-      new_img, title, content
+      new_image, title, content
     })
     return res.status(200).json({ news});
   }
   async updateNews(req, res){
     const id = req.params.id;
-    const { new_img, title, content } = req.body;
-    NewsModel.findByIdAndUpdate({ _id: id}, { new_img, title, content})
+    const { new_image, title, content } = req.body;
+    NewsModel.findByIdAndUpdate({ _id: id}, { new_image, title, content})
    .then(()=>res.json({msg:"Cap nhat thanh cong"}))
    .catch((err)=> res.json({msg:err}))
   }
