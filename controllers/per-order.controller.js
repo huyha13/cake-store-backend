@@ -8,19 +8,20 @@ class PerOrderController {
         })
         return res.status(200).json(perOrder)
      }
-     getALlPerOrder(req,res){
-         perOrderModel.find({},(err,perOrder)=>{
+     async getALlPerOrder(req,res){
+         perOrderModel.find({},(err,perorder)=>{
              if(!err){
-                 res.status(200).json(perOrder)
+                 res.status(200).json(perorder)
+             }else {
+                res.status(400).json("Error get data");
              }
-             res.status(400).json({msg:"error"})
          })
      }
      async deletePerOder(req, res){
         const id = req.params.id;
-        perOrderModel.deleteOne({_id:id}, (err, perOrder) =>{
+        perOrderModel.deleteOne({_id:id}, (err, perorder) =>{
           if(!err){
-             res.json(perOrder)
+             res.json(perorder)
           }
           else{
              res.status(400).json("Erroge delete data")

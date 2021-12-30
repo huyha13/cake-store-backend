@@ -34,7 +34,7 @@ app.use("/api/store", store);
 app.use("/api/customer", customer);
 app.use("/api/order", order);
 app.use("/api/staff", staff);
-app.use("/api/perOrder", perOrder);
+app.use("/api/perorder", perOrder);
 app.listen(PORT, () => {
   console.log("App is running", PORT);
 });
