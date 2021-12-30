@@ -4,6 +4,12 @@ const OrderSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  cakes:[
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Cake",
+    }
+  ],
   name:{
     type: String,
     require: true

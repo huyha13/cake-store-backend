@@ -4,7 +4,6 @@ class OrderController {
    async getOrderByUserId(req,res){
     let {id} = req.params
     let order = await orderModel.find({"user": id })
-
     if(order){
       return res.status(200).json(order)
     }
@@ -19,14 +18,14 @@ class OrderController {
      })
    }
    async createOrder(req,res){
-     let {userId,status,transport,name,total,address,phone}=req.body
-     let order = await orderModel.create({user:userId,status,transport,name, total,address,phone})
+     let {userId,status,transport,name,total,address,phone,cakes}=req.body
+     let order = await orderModel.create({user:userId,status,transport,name, total,address,phone,cakes})
+     console.log(req.body)
      if(order){
        return res.status(200).json({msg:"sussces"})
      }
      return res.status(400).json({msg:"Error"})
    }
-      
 }
 module.exports = new OrderController()
 
