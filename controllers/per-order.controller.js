@@ -16,5 +16,16 @@ class PerOrderController {
              res.status(400).json({msg:"error"})
          })
      }
+     async deletePerOder(req, res){
+        const id = req.params.id;
+        perOrderModel.deleteOne({_id:id}, (err, perOrder) =>{
+          if(!err){
+             res.json(perOrder)
+          }
+          else{
+             res.status(400).json("Erroge delete data")
+          }
+        })
+      }
 }
 module.exports = new PerOrderController();
