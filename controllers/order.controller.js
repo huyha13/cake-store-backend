@@ -3,7 +3,7 @@ const userModel = require("../models/user.model")
 class OrderController {
    async getOrderByUserId(req,res){
     let {id} = req.params
-    let order = await orderModel.find({"user": id })
+    let order = await orderModel.find({"user": id }).populate('cakes').populate('user')
     if(order){
       return res.status(200).json(order)
     }
