@@ -4,6 +4,7 @@ class OrderController {
    async getOrderByUserId(req,res){
     let {id} = req.params
     let order = await orderModel.find({"user": id }).populate('cakes').populate('user')
+    console.log(order)
     if(order){
       return res.status(200).json(order)
     }
@@ -26,6 +27,16 @@ class OrderController {
      }
      return res.status(400).json({msg:"Error"})
    }
+   getOrderById(req, res) {
+    const id = req.params.id;
+    orderModel.find({ _id: id }, (err, order) => {
+      if (!err) {
+        res.json(order);
+      } else {
+        res.status(400).json("Error get data");
+      }
+    }).populate('cakes').populate('user');
+  }
 }
 module.exports = new OrderController()
 
